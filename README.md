@@ -16,26 +16,31 @@ Goal:
 ## Mathematical Formulation
 
 Let:
-- \( x_{i,j} \in \{0,1\} \): 1 if item \( i \) is placed in bin \( j \), 0 otherwise.
-- \( w_i \): weight of item \( i \)
-- \( v_i \): value of item \( i \)
-- \( c_j \): capacity of bin \( j \)
 
-### Objective Function:
-Maximize:
-\[
-\sum_{i \in \text{items}} \sum_{j \in \text{bins}} v_i \cdot x_{i,j}
-\]
+- `x_{i,j} ∈ {0,1}`: 1 if item `i` is placed in bin `j`, 0 otherwise.  
+- `w_i`: weight of item `i`  
+- `v_i`: value of item `i`  
+- `c_j`: capacity of bin `j`
 
-### Constraints:
-- Each item can be assigned to at most one bin:
-\[
-\sum_{j \in \text{bins}} x_{i,j} \leq 1 \quad \forall i
-\]
-- The total weight in each bin must not exceed its capacity:
-\[
-\sum_{i \in \text{items}} w_i \cdot x_{i,j} \leq c_j \quad \forall j
-\]
+### Objective Function
+
+Maximize the total value of the packed items:
+
+maximize ∑{i ∈ items} ∑{j ∈ bins} v_i * x_{i,j}
+
+### Constraints
+
+1. **Item Assignment Constraint**  
+   Each item can be assigned to at most one bin:
+   ∑{j ∈ bins} x{i,j} ≤ 1 ∀ i ∈ items
+
+2. **Bin Capacity Constraint**  
+   The total weight in each bin must not exceed its capacity:
+   ∑{i ∈ items} w_i * x{i,j} ≤ c_j ∀ j ∈ bins
+
+### Variable Domain
+
+x_{i,j} ∈ {0, 1} ∀ i ∈ items, ∀ j ∈ bins
 
 ## Implementation Details
 
