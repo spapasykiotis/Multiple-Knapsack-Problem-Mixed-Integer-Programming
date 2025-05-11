@@ -119,6 +119,7 @@ elif status == pywraplp.Solver.INFEASIBLE:
 else:
     print('The problem does not have a feasible or optimal solution.')
     plot_results = False
+
 # Additional line after status check
 DV = solver.variables()
 print('Number of total decision variables:', len(DV))
