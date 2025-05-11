@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
 def plot_solution(data, x):
+    
     # Collect item assignments and bin values
     bin_contents = {}
     bin_values = {}
